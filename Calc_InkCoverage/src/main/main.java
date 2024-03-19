@@ -5,6 +5,8 @@
 package main;
 
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import java.awt.Toolkit;
+import static java.awt.Toolkit.getDefaultToolkit;
 
 /**
  *
@@ -17,6 +19,8 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
+        setIconImage();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,17 +32,70 @@ public class main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        JP_Prefligh = new javax.swing.JPanel();
+        JP_Postfligh = new javax.swing.JPanel();
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Calc_InkCoverage");
+        setResizable(false);
+
+        jTabbedPane1.setToolTipText("");
+        jTabbedPane1.setMinimumSize(new java.awt.Dimension(47, 100));
+
+        javax.swing.GroupLayout JP_PreflighLayout = new javax.swing.GroupLayout(JP_Prefligh);
+        JP_Prefligh.setLayout(JP_PreflighLayout);
+        JP_PreflighLayout.setHorizontalGroup(
+            JP_PreflighLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 238, Short.MAX_VALUE)
+        );
+        JP_PreflighLayout.setVerticalGroup(
+            JP_PreflighLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 355, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("PREFLIGH", JP_Prefligh);
+
+        javax.swing.GroupLayout JP_PostflighLayout = new javax.swing.GroupLayout(JP_Postfligh);
+        JP_Postfligh.setLayout(JP_PostflighLayout);
+        JP_PostflighLayout.setHorizontalGroup(
+            JP_PostflighLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 238, Short.MAX_VALUE)
+        );
+        JP_PostflighLayout.setVerticalGroup(
+            JP_PostflighLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 355, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("POSTFLIGH", JP_Postfligh);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -49,7 +106,7 @@ public class main extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-       FlatMacDarkLaf.setup();
+        FlatMacDarkLaf.setup();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -60,5 +117,13 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JP_Postfligh;
+    private javax.swing.JPanel JP_Prefligh;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void setIconImage() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/calc.png")));
+    }
 }
