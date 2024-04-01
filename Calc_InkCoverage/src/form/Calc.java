@@ -52,7 +52,6 @@ public class Calc extends javax.swing.JPanel {
         lb_resultado.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
 
         cb_substrato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cartão Copo", "Cartão Couché", "Cartão Coated", "Cartão Uncoated", "Cartão Laminado", "Papel Sulfite" }));
-        cb_substrato.setSelectedIndex(2);
 
         lb_substrato.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lb_substrato.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -129,7 +128,7 @@ public class Calc extends javax.swing.JPanel {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel10.setText("V 1.0");
+        jLabel10.setText("V 1.1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -211,7 +210,7 @@ public class Calc extends javax.swing.JPanel {
         jC_calcularPrefligh.setSelected(false);
         lb_resultado.setText("");
         cb_pesoTinta.setSelectedIndex(0);
-        cb_substrato.setSelectedIndex(2);
+        cb_substrato.setSelectedIndex(0);
         cb_acabamentoVerniz.setSelectedIndex(0);
         txt_inkCoverage.setText("");
         txt_quantidade.setText("");
@@ -229,25 +228,25 @@ public class Calc extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Digite a tiragem de impressão!", "", 2);
                 }
             } else {
-                float s = 0, p = 0, a = 0, i = 0, n = 0, sg = 0, resultado = 0, addPrefligh = 0;
+                float s = 0, p = 0, a = 0, i = 0, n = 0, sg = 0, resultadoPostflight = 0, resultadoPreflight = 0;
                 switch (cb_substrato.getSelectedIndex()) {
                     case 0:
-                        s = (float) 1.0;
+                        s = (float) 1;
                         break;
                     case 1:
-                        s = (float) 1.2;
+                        s = (float) 1.1;
                         break;
                     case 2:
-                        s = (float) 1.5;
+                        s = (float) 1.2;
                         break;
                     case 3:
-                        s = (float) 2.0;
+                        s = (float) 1.3;
                         break;
                     case 4:
-                        s = (float) 2.0;
+                        s = (float) 1.4;
                         break;
                     case 5:
-                        s = (float) 1.6;
+                        s = (float) 1.5;
                         break;
                 }
 
@@ -256,19 +255,19 @@ public class Calc extends javax.swing.JPanel {
                         sg = (float) 1;
                         break;
                     case 1:
-                        sg = (float) 1.2;
+                        sg = (float) 1.1;
                         break;
                     case 2:
-                        sg = (float) 1.7;
+                        sg = (float) 1.2;
                         break;
                     case 3:
-                        sg = (float) 2.0;
+                        sg = (float) 1.3;
                         break;
                     case 4:
-                        sg = (float) 2.3;
+                        sg = (float) 1.4;
                         break;
                     case 5:
-                        sg = (float) 2.5;
+                        sg = (float) 1.5;
                         break;
                 }
 
@@ -284,13 +283,13 @@ public class Calc extends javax.swing.JPanel {
                 i = (Float.parseFloat(txt_inkCoverage.getText().replace(",", "."))) / 1000000;
                 n = Float.parseFloat(txt_quantidade.getText().replace(",", "."));
                 p = (float) 0.5;
-                resultado = (s * p * a * i * n * sg) / 353;
-                addPrefligh = (float) (resultado * 0.3);
+                resultadoPostflight = (s * p * a * i * n * sg) / 353;
+                resultadoPreflight = (float) (resultadoPostflight * 1.3);
 
                 if (jC_calcularPrefligh.isSelected()) {
-                    lb_resultado.setText(String.format("%.2f", resultado + addPrefligh) + "Kg");
+                    lb_resultado.setText(String.format("%.2f", resultadoPreflight) + "Kg");
                 } else {
-                    lb_resultado.setText(String.format("%.2f", resultado) + "Kg");
+                    lb_resultado.setText(String.format("%.2f", resultadoPostflight) + "Kg");
                 }
 
             }

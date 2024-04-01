@@ -31,7 +31,7 @@ public class JdInfo extends javax.swing.JDialog {
         jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("FÓRMULA DE CÁLCULO");
+        setTitle("Informações");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
