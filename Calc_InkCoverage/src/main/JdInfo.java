@@ -32,9 +32,13 @@ public class JdInfo extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Informações");
+        setResizable(false);
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setText("Fórmula:\n------------------------------------------\nParte1 (conversão):\ng / 1000000\n------------------------------------------\nParte2 ( cálculo1):\n(gsm * g * qt) / 1000\n------------------------------------------\nParte3 (cálculo2):\ncálculo1 + tp\n------------------------------------------\nParte4 (resultado):\ncálculo2 + ev\n------------------------------------------\nLegenda:\n------------------------------------------\ntp = Tipo de tinta\ngsm = gramas por metros quadrado\nev = Acrécimos de eventualidade\ng = Grafismo\nqt = Tiragem de impressão em folha\nConvencional  = 0,3kg\nUltra Violeta = 0,5kg\nPastel = 1msg\nPantone = 1,2msg\nMetálico = 1,6msg\nBranco opaco = 1,8msg\n");
+        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextArea1.setSelectionColor(new java.awt.Color(153, 153, 153));
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -44,14 +48,14 @@ public class JdInfo extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

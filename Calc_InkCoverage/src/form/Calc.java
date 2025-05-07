@@ -15,8 +15,21 @@ public class Calc extends javax.swing.JPanel {
 
     private JdInfo info;
 
+//Metodo ZerarCalculadora
+    public void LimpaCalc() {
+
+        lb_resultado.setText("");
+        cb_gsmTinta.setSelectedIndex(1);
+        cb_tipoTinta.setSelectedIndex(0);
+        cb_eventualidade.setSelectedIndex(2);
+        txt_inkCoverage.setText("");
+        txt_quantidade.setText("");
+
+    }
+
     public Calc() {
         initComponents();
+        LimpaCalc();
     }
 
     /**
@@ -29,21 +42,20 @@ public class Calc extends javax.swing.JPanel {
     private void initComponents() {
 
         lb_resultado = new javax.swing.JLabel();
-        cb_substrato = new javax.swing.JComboBox<>();
+        cb_tipoTinta = new javax.swing.JComboBox<>();
         lb_substrato = new javax.swing.JLabel();
         lb_pesoTinta = new javax.swing.JLabel();
-        cb_pesoTinta = new javax.swing.JComboBox<>();
+        cb_gsmTinta = new javax.swing.JComboBox<>();
         lb_inkCoverage = new javax.swing.JLabel();
         lb_quantidade = new javax.swing.JLabel();
         txt_inkCoverage = new javax.swing.JTextField();
         txt_quantidade = new javax.swing.JTextField();
         lb_verniz = new javax.swing.JLabel();
-        cb_acabamentoVerniz = new javax.swing.JComboBox<>();
+        cb_eventualidade = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         btn_info = new javax.swing.JButton();
         btn_Calcular = new javax.swing.JButton();
         btn_Limpar = new javax.swing.JButton();
-        jC_calcularPrefligh = new javax.swing.JCheckBox();
         jLabel10 = new javax.swing.JLabel();
 
         lb_resultado.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -51,25 +63,25 @@ public class Calc extends javax.swing.JPanel {
         lb_resultado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_resultado.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 204)));
 
-        cb_substrato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cartão Copo", "Cartão Couché", "Cartão Coated", "Cartão Uncoated", "Cartão Laminado", "Papel Sulfite" }));
+        cb_tipoTinta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Convencional", "Ultra Violeta" }));
 
         lb_substrato.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lb_substrato.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lb_substrato.setText("Substrato");
+        lb_substrato.setText("Tipo de tinta");
 
         lb_pesoTinta.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lb_pesoTinta.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lb_pesoTinta.setText("Peso Específico da tinta");
+        lb_pesoTinta.setText("GSM da tinta");
 
-        cb_pesoTinta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CMYK", "CMYK UV", "Escala Pantone", "Tons Pastéis", "Metalizado", "Branco Opaco" }));
+        cb_gsmTinta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pastel", "Pantone", "Metálico", "Branco opaco" }));
 
         lb_inkCoverage.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lb_inkCoverage.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lb_inkCoverage.setText("*Ink Coverage mm²");
+        lb_inkCoverage.setText("*Grafismo (mm²)");
 
         lb_quantidade.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lb_quantidade.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lb_quantidade.setText("*Digite a tiragem de impressão");
+        lb_quantidade.setText("*Tiragem de impressão (folha)");
 
         txt_inkCoverage.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_inkCoverage.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -88,9 +100,9 @@ public class Calc extends javax.swing.JPanel {
 
         lb_verniz.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lb_verniz.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lb_verniz.setText("Acabamento Verniz");
+        lb_verniz.setText("Acrécimo de Eventualidades");
 
-        cb_acabamentoVerniz.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Brilho", "Fosco" }));
+        cb_eventualidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0%", "3%", "5%", "8%", "10%", "15%", "20%" }));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel9.setText("(*)Preenchimento obrigatório");
@@ -119,16 +131,9 @@ public class Calc extends javax.swing.JPanel {
             }
         });
 
-        jC_calcularPrefligh.setText("Calcular Prefligh");
-        jC_calcularPrefligh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jC_calcularPreflighMouseClicked(evt);
-            }
-        });
-
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel10.setText("V 1.1");
+        jLabel10.setText("V 1.2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -139,17 +144,16 @@ public class Calc extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lb_inkCoverage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lb_resultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cb_substrato, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cb_tipoTinta, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jC_calcularPrefligh)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(120, 120, 120)
                         .addComponent(lb_substrato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(lb_pesoTinta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cb_pesoTinta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cb_gsmTinta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txt_inkCoverage, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txt_quantidade, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lb_verniz, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cb_acabamentoVerniz, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cb_eventualidade, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_info)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
@@ -168,21 +172,18 @@ public class Calc extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lb_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jC_calcularPrefligh)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addComponent(lb_substrato, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addComponent(cb_substrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lb_substrato)
+                .addGap(0, 0, 0)
+                .addComponent(cb_tipoTinta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lb_pesoTinta)
                 .addGap(0, 0, 0)
-                .addComponent(cb_pesoTinta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_gsmTinta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lb_verniz)
                 .addGap(0, 0, 0)
-                .addComponent(cb_acabamentoVerniz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_eventualidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lb_inkCoverage)
                 .addGap(0, 0, 0)
@@ -191,7 +192,7 @@ public class Calc extends javax.swing.JPanel {
                 .addComponent(lb_quantidade)
                 .addGap(0, 0, 0)
                 .addComponent(txt_quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_info)
                     .addComponent(btn_Calcular)
@@ -206,91 +207,73 @@ public class Calc extends javax.swing.JPanel {
 
     private void btn_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LimparActionPerformed
 
-        lb_quantidade.setText("*Digite a tiragem de impressão");
-        jC_calcularPrefligh.setSelected(false);
-        lb_resultado.setText("");
-        cb_pesoTinta.setSelectedIndex(0);
-        cb_substrato.setSelectedIndex(0);
-        cb_acabamentoVerniz.setSelectedIndex(0);
-        txt_inkCoverage.setText("");
-        txt_quantidade.setText("");
+        LimpaCalc();
     }//GEN-LAST:event_btn_LimparActionPerformed
 
     private void btn_CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CalcularActionPerformed
 
         if ("".equals(txt_inkCoverage.getText())) {
-            JOptionPane.showMessageDialog(null, "Digite o valor do Ink Coverage!", "", 2);
+            JOptionPane.showMessageDialog(null, "Digite o valor do Grafismo em mm²!", "", 2);
         } else {
             if ("".equals(txt_quantidade.getText())) {
-                if (jC_calcularPrefligh.isSelected()) {
-                    JOptionPane.showMessageDialog(null, "Digite a quantidade de produtos!", "", 2);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Digite a tiragem de impressão!", "", 2);
-                }
+                JOptionPane.showMessageDialog(null, "Digite a tiragem de impressão em folhas!", "", 2);
             } else {
-                float s = 0, p = 0, a = 0, i = 0, n = 0, sg = 0, resultadoPostflight = 0, resultadoPreflight = 0;
-                switch (cb_substrato.getSelectedIndex()) {
+
+                float gsm = 0, g = 0, tp = 0, ev = 0, qt = 0, calculo = 0, resultado = 0;
+                switch (cb_tipoTinta.getSelectedIndex()) {
                     case 0:
-                        s = (float) 1;
+                        tp = (float) 0.3;
                         break;
                     case 1:
-                        s = (float) 1.1;
+                        tp = (float) 0.5;
+                        break;
+                }
+
+                switch (cb_gsmTinta.getSelectedIndex()) {
+                    case 0:
+                        gsm = (float) 1;
+                        break;
+                    case 1:
+                        gsm = (float) 1.2;
                         break;
                     case 2:
-                        s = (float) 1.2;
+                        gsm = (float) 1.6;
                         break;
                     case 3:
-                        s = (float) 1.3;
-                        break;
-                    case 4:
-                        s = (float) 1.4;
-                        break;
-                    case 5:
-                        s = (float) 1.5;
+                        gsm = (float) 1.8;
                         break;
                 }
 
-                switch (cb_pesoTinta.getSelectedIndex()) {
+                switch (cb_eventualidade.getSelectedIndex()) {
                     case 0:
-                        sg = (float) 1;
+                        ev = (float) 0;
                         break;
                     case 1:
-                        sg = (float) 1.1;
+                        ev = (float) 0.03;
                         break;
                     case 2:
-                        sg = (float) 1.2;
+                        ev = (float) 0.05;
                         break;
                     case 3:
-                        sg = (float) 1.3;
+                        ev = (float) 0.08;
                         break;
                     case 4:
-                        sg = (float) 1.4;
+                        ev = (float) 0.1;
                         break;
                     case 5:
-                        sg = (float) 1.5;
+                        ev = (float) 0.15;
+                        break;
+                    case 6:
+                        ev = (float) 0.2;
                         break;
                 }
 
-                switch (cb_acabamentoVerniz.getSelectedIndex()) {
-                    case 0:
-                        a = (float) 1.0;
-                        break;
-                    case 1:
-                        a = (float) 1.2;
-                        break;
-                }
+                g = (Float.parseFloat(txt_inkCoverage.getText().replace(",", ".")));
+                qt = Float.parseFloat(txt_quantidade.getText().replace(",", "."));
+                calculo = ((gsm * (g/1000000) * qt)/1000)+tp;
+                resultado = calculo+(calculo*ev);
 
-                i = (Float.parseFloat(txt_inkCoverage.getText().replace(",", "."))) / 1000000;
-                n = Float.parseFloat(txt_quantidade.getText().replace(",", "."));
-                p = (float) 0.5;
-                resultadoPostflight = (s * p * a * i * n * sg) / 353;
-                resultadoPreflight = (float) (resultadoPostflight * 1.3);
-
-                if (jC_calcularPrefligh.isSelected()) {
-                    lb_resultado.setText(String.format("%.2f", resultadoPreflight) + "Kg");
-                } else {
-                    lb_resultado.setText(String.format("%.2f", resultadoPostflight) + "Kg");
-                }
+                lb_resultado.setText(String.format("%.2f", resultado) + "Kg");
 
             }
         }
@@ -300,16 +283,20 @@ public class Calc extends javax.swing.JPanel {
 
         if (info == null) {
             info = new JdInfo();
+            info.setLocationRelativeTo(this);
             info.setVisible(true);
-        }
 
+        }
+        info.setLocationRelativeTo(this);
         info.setVisible(true);
     }//GEN-LAST:event_btn_infoActionPerformed
 
     private void txt_inkCoverageKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_inkCoverageKeyTyped
 
-        String caracteres = "0987654321,.";
-        if (!caracteres.contains(evt.getKeyChar() + "")) {
+        String caracteres = "0987654321.,";
+        if (evt.getKeyChar() == ',') {
+            evt.setKeyChar('.');
+        } else if (!caracteres.contains(evt.getKeyChar() + "")) {
             evt.consume();
         }
     }//GEN-LAST:event_txt_inkCoverageKeyTyped
@@ -322,24 +309,14 @@ public class Calc extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txt_quantidadeKeyTyped
 
-    private void jC_calcularPreflighMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jC_calcularPreflighMouseClicked
-
-        if (jC_calcularPrefligh.isSelected()) {
-            lb_quantidade.setText("*Digite a quantidade de produtos");
-        } else {
-            lb_quantidade.setText("*Digite a tiragem de impressão");
-        }
-    }//GEN-LAST:event_jC_calcularPreflighMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Calcular;
     private javax.swing.JButton btn_Limpar;
     private javax.swing.JButton btn_info;
-    private javax.swing.JComboBox<String> cb_acabamentoVerniz;
-    private javax.swing.JComboBox<String> cb_pesoTinta;
-    private javax.swing.JComboBox<String> cb_substrato;
-    private javax.swing.JCheckBox jC_calcularPrefligh;
+    private javax.swing.JComboBox<String> cb_eventualidade;
+    private javax.swing.JComboBox<String> cb_gsmTinta;
+    private javax.swing.JComboBox<String> cb_tipoTinta;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lb_inkCoverage;
