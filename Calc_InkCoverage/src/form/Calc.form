@@ -27,7 +27,6 @@
                       <Component id="lb_substrato" max="32767" attributes="0"/>
                   </Group>
                   <Component id="lb_pesoTinta" alignment="0" max="32767" attributes="0"/>
-                  <Component id="cb_gsmTinta" alignment="0" max="32767" attributes="0"/>
                   <Component id="txt_inkCoverage" alignment="1" max="32767" attributes="0"/>
                   <Component id="txt_quantidade" alignment="1" max="32767" attributes="0"/>
                   <Component id="lb_verniz" alignment="1" max="32767" attributes="0"/>
@@ -45,6 +44,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel10" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="txt_pesoTinta" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -53,7 +53,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="lb_resultado" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="lb_substrato" min="-2" max="-2" attributes="0"/>
@@ -62,11 +62,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lb_pesoTinta" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="cb_gsmTinta" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="lb_verniz" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="cb_eventualidade" min="-2" max="-2" attributes="0"/>
+              <Component id="txt_pesoTinta" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lb_inkCoverage" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -75,7 +71,11 @@
               <Component id="lb_quantidade" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="txt_quantidade" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lb_verniz" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <Component id="cb_eventualidade" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="btn_info" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_Calcular" min="-2" max="-2" attributes="0"/>
@@ -86,7 +86,6 @@
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -138,23 +137,8 @@
           <Font name="Segoe UI" size="10" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="GSM da tinta"/>
+        <Property name="text" type="java.lang.String" value="*Peso da tinta (gsm)"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cb_gsmTinta">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Pastel"/>
-            <StringItem index="1" value="Pantone"/>
-            <StringItem index="2" value="Met&#xe1;lico"/>
-            <StringItem index="3" value="Branco opaco"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lb_inkCoverage">
       <Properties>
@@ -197,7 +181,7 @@
           <Font name="Segoe UI" size="10" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Acr&#xe9;cimo de Eventualidades"/>
+        <Property name="text" type="java.lang.String" value="Acr&#xe9;scimo de Eventualidades"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="cb_eventualidade">
@@ -265,8 +249,16 @@
           <Font name="Segoe UI" size="10" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="V 1.2"/>
+        <Property name="text" type="java.lang.String" value="V 1.3"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txt_pesoTinta">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+      </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_pesoTintaKeyTyped"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

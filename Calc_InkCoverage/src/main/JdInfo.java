@@ -37,7 +37,7 @@ public class JdInfo extends javax.swing.JDialog {
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Fórmula:\n------------------------------------------\nParte1 (conversão):\ng / 1000000\n------------------------------------------\nParte2 ( cálculo1):\n(gsm * g * qt) / 1000\n------------------------------------------\nParte3 (cálculo2):\ncálculo1 + tp\n------------------------------------------\nParte4 (resultado):\ncálculo2 + ev\n------------------------------------------\nLegenda:\n------------------------------------------\ntp = Tipo de tinta\ngsm = gramas por metros quadrado\nev = Acrécimos de eventualidade\ng = Grafismo\nqt = Tiragem de impressão em folha\nConvencional  = 0,3kg\nUltra Violeta = 0,5kg\nPastel = 1msg\nPantone = 1,2msg\nMetálico = 1,6msg\nBranco opaco = 1,8msg\n");
+        jTextArea1.setText("Fórmula:\n------------------------------------------\nParte1 (conversão):\ng / 1000000\n\nParte2 ( cálculo1):\n(gsm * g * qt) / 1000\n\nParte3 (cálculo2):\ncálculo1 + tp\n\nParte4 (resultado):\ncálculo2 + ev\n------------------------------------------\nLegenda:\n------------------------------------------\ntp = Tipo de tinta\ngsm = Peso da tinta\nev = Acréscimos de eventualidade\ng = Grafismo\nqt = Tiragem de impressão em folha\nConvencional  = 0,3kg\nUltra Violeta = 0,5kg\n------------------------------------------\nOrientações:\n------------------------------------------\nPastel = 1msg\nPantone = 1,2msg\nMetálico = 1,6msg\nBranco opaco = 1,8msg\n");
         jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextArea1.setSelectionColor(new java.awt.Color(153, 153, 153));
         jScrollPane1.setViewportView(jTextArea1);
